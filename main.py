@@ -20,11 +20,12 @@ if __name__ == '__main__':
     closeTimes = timeCloseBin(defaults['numWrites'])
     print('closeTimes')
 
-    plt.hist(fullTimes, density=1, bins=20)
-    plt.savefig('fullTimes.png')
-
-
-
-
-
-
+    plt.hist(fullTimes, density=1, bins=100)
+#    plt.savefig('fullTimes.png')
+    plt.show()
+    plt.hist(writeTimes, density=1, bins=100)
+    plt.show()
+    plt.hist(openTimes, density=1, bins=100)
+    plt.show()
+    plt.hist(closeTimes, density=1, bins=100)
+    plt.show()
