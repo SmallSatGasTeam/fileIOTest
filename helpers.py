@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 def createFileNames(numFiles):
     """
     Returns a list of file names.
@@ -18,4 +20,13 @@ def createPacket(packetSize):
     return bytearray(data + 'B', 'utf-8')
 
 
-
+def generatePlot(data, title, save, show):
+    """
+    Generates a histogram of the specified title with the data provided.  Gives an option to save to a png.
+    """
+    plt.hist(data, density=1, bins=200)
+    plt.title(title)
+    if show == True:
+        plt.show()
+    if save == True:
+        plt.savefig(f'{title}.png')
