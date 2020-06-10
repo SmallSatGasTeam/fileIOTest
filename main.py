@@ -22,8 +22,8 @@ if __name__ == '__main__':
     closeTimes = timeCloseBin(defaults['numWrites'])
     print('closeTimes')
 
-    generatePlot(fullTimes, 'time to open, write, and close', True, True)
-#    generatePlot(writeTimes, 'time to write', True, True)
-#    generatePlot(openTimes, 'time to open', True, True)
-#    generatePlot(closeTimes, 'time to close', True, True)
+    generatePlot(fullTimes, 'time to open, write, and close', True, False)
+    generatePlot(writeTimes, 'time to write', True, False)
+    generatePlot(openTimes, 'time to open', True, False)
+    generatePlot(closeTimes, 'time to close', True, False)
 

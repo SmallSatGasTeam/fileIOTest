@@ -24,11 +24,11 @@ def createPacket(packetSize):
 
 def generatePlot(data, title, save, show):
     """
-    Generates a histogram of the specified title with the data provided.  Gives an option to save to a png.
+    Generates a plot of the specified title with the data provided.  Gives an option to save to a png.
     """
     data.sort()
     ax = plt.subplot()
-    ax.plot(data)
+    plt.plot(data)
     plt.title(title)
     anchoredText = AnchoredText(f'max: {max(data)} (sec)\nmean: {statistics.mean(data)} (sec)\nmin: {min(data)} (sec)', loc=2)
     ax.add_artist(anchoredText)
@@ -38,3 +38,4 @@ def generatePlot(data, title, save, show):
         plt.show()
     if save == True:
         plt.savefig(f'{title}.png')
+    ax.remove()
