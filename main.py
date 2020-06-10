@@ -11,12 +11,10 @@ if __name__ == '__main__':
     defaults = {'numFiles': 5, 'numWrites': 1000, 'numReads': 1000, 'packetSize': 128}
     fileNames = createFileNames(defaults['numFiles'])
 
-    generatePlot([1,2,3,4], 'test', False, True)
+#    generatePlot([1,2,3,4], 'test', False, True)
     
     fullTimes = timeFullWrite(fileNames, defaults)
     print('fullTimes')
-    print(len(fullTimes))
-    print(fullTimes)
     writeTimes = timeWritePacket(fileNames, defaults)
     print('writeTimes')
     openTimes = timeOpenBin(defaults['numWrites'])
@@ -24,8 +22,8 @@ if __name__ == '__main__':
     closeTimes = timeCloseBin(defaults['numWrites'])
     print('closeTimes')
 
-#    generatePlot(fullTimes, 'time to open, write, and close', True, True)
-#    generatePlot(writeTimes, 'time to write', True, False)
-#    generatePlot(openTimes, 'time to open', True, False)
-#    generatePlot(closeTimes, 'time to close', True, False)
+    generatePlot(fullTimes, 'time to open, write, and close', True, True)
+#    generatePlot(writeTimes, 'time to write', True, True)
+#    generatePlot(openTimes, 'time to open', True, True)
+#    generatePlot(closeTimes, 'time to close', True, True)
 

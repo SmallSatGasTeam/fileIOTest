@@ -1,4 +1,6 @@
 import matplotlib.pyplot as plt
+from matplotlib.offsetbox import AnchoredText
+import statistics
 
 def createFileNames(numFiles):
     """
@@ -24,8 +26,14 @@ def generatePlot(data, title, save, show):
     """
     Generates a histogram of the specified title with the data provided.  Gives an option to save to a png.
     """
-    plt.hist(data, density=1, bins=200)
+    data.sort()
+    ax = plt.subplot()
+    ax.plot(data)
     plt.title(title)
+    anchoredText = AnchoredText(f'max: {max(data)} (sec)\nmean: {statistics.mean(data)} (sec)\nmin: {min(data)} (sec)', loc=2)
+    ax.add_artist(anchoredText)
+    ax.set_ylabel('Time (s)')
+    ax.set_xlabel('Trial (sorted by time)')
     if show == True:
         plt.show()
     if save == True:
